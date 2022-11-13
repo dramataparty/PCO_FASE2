@@ -5,4 +5,5 @@
 public class piece {
     private Symbol[] p;
     
+    
 }
