@@ -14,6 +14,7 @@ public class piece {
 
     public piece (Random generator, int size) {
         this.generator = generator;
+        //nao sei se esta completo
         for(int i = 0; i < size; i++) {
             int valor = generator.nextInt((7)+1);
             if(valor == 7) {
