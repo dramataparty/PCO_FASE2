@@ -14,8 +14,11 @@ public class piece {
 
     public piece (Random generator, int size) {
         this.generator = generator;
-        if(generator.nextInt() == p.length) {
-            this.generator = generator;
+        for(int i = 0; i < size; i++) {
+            int valor = generator.nextInt((7)+1);
+            if(valor == 7) {
+                valor = generator.nextInt((7)+1);
+            }
         }
         this.size = size;
     }
