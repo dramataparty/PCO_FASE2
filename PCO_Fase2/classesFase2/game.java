@@ -2,9 +2,9 @@ import java.util.Random;
 public class game {
 
     private static final int SIZE_OF_PIECE = 3;
-    private static final int PLAY_SCORE = 3;
-    private static final int BASE_ELIM_POINTS = 3;
-    private static final int EXTRA_ELIM_POINTS = 3;
+    private static final int PLAY_SCORE = 10;
+    private static final int BASE_ELIM_POINTS = 200;
+    private static final int EXTRA_ELIM_POINTS = 50;
 
     private Symbol [][] initgrid;
     private Random g;
@@ -65,17 +65,21 @@ public class game {
 
     public void permutatePiece(int n) {
         //erro aqui? why tho??? 
-            piece.permutation(n);
+        piece b = new piece(g, SIZE_OF_PIECE);
+            b.permutation(n);
     }
 
     public void placePiece(int column) {
         //WIP
         // resolver imports e ver pq ntão bem
         generatePiece();
-        for(int i = 0;i<g[column].length;i++){
-            if(g[column[i]==Symbol.EMPTY] &&g[column][i-1]!=Symbol.EMPTY){
-                for(int e =piece.p.length;e>=0;e--){
-                    g[column][i] = this.piece.p[e];
+
+        piece c = new piece(g, SIZE_OF_PIECE);
+
+        for(int i = 0;i<initgrid[column].length;i++){
+            if(initgrid[column][i]==Symbol.EMPTY && initgrid[column][i-1]!=Symbol.EMPTY){
+                for(int e =c.symbols().length;e>=0;e--){
+                    initgrid[column][i] = c.symbols()[e];
 
                 }
             }
@@ -108,19 +112,24 @@ public class game {
         }
         return jogar;
     }
+
+    public int currentScore = 0;
+
     //Por terminar
     public int score() {
-        
+        return currentScore;
         
     }
     //Não está completo
     public String currentPiece() {
-        
-        return "(" + piece.piece;
+
+        piece a = new piece(g, SIZE_OF_PIECE);
+
+        return "(" + a + ")";
     }
     //Não está completo
     public String toString() {
-        return "(" + this.nRowns + "," + this.nCols + ")";
+        return "(" + this.nRows + "," + this.nCols + ")";
     }
 
     public static void main(String[] args){

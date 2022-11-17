@@ -20,7 +20,6 @@ public class piece {
             if(valor == 7) {
                 valor = generator.nextInt((7)+1);
             }
-            p[i]=Symbol.;
             // aceder aos symbols como?
         }
         this.size = size;
