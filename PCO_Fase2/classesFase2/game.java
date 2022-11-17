@@ -108,7 +108,20 @@ public class game {
         }
         return jogar;
     }
-
+    //Por terminar
+    public int score() {
+        
+        
+    }
+    //Não está completo
+    public String currentPiece() {
+        
+        return "(" + piece.piece;
+    }
+    //Não está completo
+    public String toString() {
+        return "(" + this.nRowns + "," + this.nCols + ")";
+    }
 
     public static void main(String[] args){
         
