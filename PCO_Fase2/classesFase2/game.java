@@ -59,22 +59,30 @@ public class game {
     }
 
     public void generatePiece() {
-        for(int i = 0; i < SIZE_OF_PIECE; i++) {
-            int valor = g.nextInt((7)+1);
-            //incompleto
-            if(valor == 7) {
-                valor = g.nextInt((7)+1);
-            }
-        }
+        // gera uma piece nova, chama o Piece do piece.java
+        // usa o size of piece pra determinar
     }
 
     public void permutatePiece(int n) {
-        this.nRows = nRows + n;
+        //erro aqui? why tho??? 
+            piece.permutation(n);
     }
 
     public void placePiece(int column) {
-        //incompleto
+        //WIP
+        // resolver imports e ver pq ntão bem
         generatePiece();
+        for(int i = 0;i<g[column].length;i++){
+            if(g[column[i]==Symbol.EMPTY] &&g[column][i-1]!=Symbol.EMPTY){
+                for(int e =piece.p.length;e>=0;e--){
+                    g[column][i] = this.piece.p[e];
+
+                }
+            }
+
+        }
+        Transformer.eliminateSequence(g[column]);
+        Transformer.accomodate(g[column]);
     }
 
     public boolean canPlay() {

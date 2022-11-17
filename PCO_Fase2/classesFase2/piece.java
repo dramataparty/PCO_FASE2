@@ -20,12 +20,20 @@ public class piece {
             if(valor == 7) {
                 valor = generator.nextInt((7)+1);
             }
+            p[i]=Symbol.;
+            // aceder aos symbols como?
         }
         this.size = size;
     }
 
-    public void permutation( int n) {
-        this.size = size + n;
+    public void permutation(int n) {
+        for(int i=0;i<this.p.length;i++){
+            int currind = i + n;
+            while(currind>this.p.length-1){
+                currind = currind- this.p.length;
+            }
+            this.p[i] = this.p[currind];
+        }
     }
 
     public Symbol[] symbols() {
