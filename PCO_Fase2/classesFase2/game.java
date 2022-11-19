@@ -131,10 +131,10 @@ public class game {
         // if(permutatePiece()) {
         //     currentScore +=  PLAY_SCORE;
         // }
-        // if(permutatePiece() and Transformer.eliminateSequence == 3) {
+        // if(Transformer.eliminateSequence == 3) {
             //currentScore += BASE_ELIM_POINTS;
         // }
-        // if(permutatePiece() and Transformer.eliminateSequence > 3)
+        // if(Transformer.eliminateSequence > 3)
         // currentScore = currentScore + BASE_ELIM_POINTS + (EXTRA_ELIM_POINTS * (Transformer.eliminateSequence - SIZE_OF_PIECE));
         //}
         return currentScore;
