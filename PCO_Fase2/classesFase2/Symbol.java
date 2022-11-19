@@ -6,7 +6,7 @@
  */
 public enum Symbol {
 	CARDINAL("#"),
-	DOLAR("$"), 
+	DOLAR("$"),
 	PERCENT("%"), 
 	BANG("!"), 
 	AMPERSAND("&"), 

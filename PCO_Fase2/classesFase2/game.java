@@ -15,6 +15,12 @@ public class game {
     public game(Symbol [][] initGrid, Random g) {
         this.initgrid = initGrid;
         this.g = g;
+        for(int i = 0; i < SIZE_OF_PIECE; i++) {
+            int valor = g.nextInt((7)+1);
+            if(valor == 7) {
+                valor = g.nextInt((7)+1);
+            }
+        }
     }
 
     public game(int nRows, int nCols, int diffic, Random g) {
@@ -61,6 +67,11 @@ public class game {
     public void generatePiece() {
         // gera uma piece nova, chama o Piece do piece.java
         // usa o size of piece pra determinar
+        piece z = new piece(g, SIZE_OF_PIECE);
+        Symbol[] simbolos = Symbol.values();
+        for(int i = 0; i < SIZE_OF_PIECE; i++) {
+            z.symbols()[i] = simbolos[g.nextInt(simbolos.length-1)];
+        }
     }
 
     public void permutatePiece(int n) {
@@ -117,6 +128,15 @@ public class game {
 
     //Por terminar
     public int score() {
+        // if(permutatePiece()) {
+        //     currentScore +=  PLAY_SCORE;
+        // }
+        // if(permutatePiece() and Transformer.eliminateSequence == 3) {
+            //currentScore += BASE_ELIM_POINTS;
+        // }
+        // if(permutatePiece() and Transformer.eliminateSequence > 3)
+        // currentScore = currentScore + BASE_ELIM_POINTS + (EXTRA_ELIM_POINTS * (Transformer.eliminateSequence - SIZE_OF_PIECE));
+        //}
         return currentScore;
         
     }
