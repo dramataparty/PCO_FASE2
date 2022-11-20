@@ -15,12 +15,6 @@ public class Game {
     public Game(Symbol [][] initGrid, Random g) {
         this.initgrid = initGrid;
         this.g = g;
-        for(int i = 0; i < SIZE_OF_PIECE; i++) {
-            int valor = g.nextInt((7)+1);
-            if(valor == 7) {
-                valor = g.nextInt((7)+1);
-            }
-        }
     }
 
     public Game(int nRows, int nCols, int diffic, Random g) {
@@ -28,13 +22,21 @@ public class Game {
         this.nCols = nCols;
         this.diffic = diffic;
         this.g = g;
+        Symbol[] symbarr = Symbol.values();
+        for(int i = 0; i < initgrid.length ; i++){
+            Random gen = new Random();
+            for(int e = initgrid[i].length; e > initgrid[i].length - diffic;e--){
+                initgrid[i][e] = symbarr[gen.nextInt(7)];
+            }
+
+        }
     }
 
-    public int linesInGrid() {
+    int linesInGrid() {
         return this.nRows;
     }
 
-    public int colsInGrid() {
+    int colsInGrid() {
         return this.nCols;
     }
 
@@ -42,12 +44,12 @@ public class Game {
 
     public static boolean validGrid(Symbol[][] g){
         boolean valgrid = true;
-        //int colcount = 0;
+        int colcount = 0;
         for(Symbol [] i:g){
-            //colcount++;
-            //if(i.length != linesInGrid()){
-            //    valgrid = false;
-            //}
+            colcount++;
+            if(i.length != linesInGrid()){
+                valgrid = false;
+            }
             for(int e = 0; e < i.length - 1;e++){
                 if(i[e]==null || ( (i[e] != Symbol.EMPTY) && i[e+1]== Symbol.EMPTY)){
                     valgrid = false;
@@ -65,28 +67,18 @@ public class Game {
     }
 
     public void generatePiece() {
-        // gera uma piece nova, chama o Piece do piece.java
-        // usa o size of piece pra determinar
+        // Como é que se faz update e/ou define a piece atual???
         Piece z = new Piece(g, SIZE_OF_PIECE);
-        Symbol[] simbolos = Symbol.values();
-        for(int i = 0; i < SIZE_OF_PIECE; i++) {
-            z.symbols()[i] = simbolos[g.nextInt(simbolos.length-1)];
-        }
+        z = 
+        
     }
 
-    public void permutatePiece(int n) {
-        //erro aqui? why tho??? 
-        Piece b = new Piece(g, SIZE_OF_PIECE);
-            b.permutation(n);
+    public void permutatePiece(int n) { 
+        Piece.p.permutation(n);
     }
 
     public void placePiece(int column) {
-        //WIP
-        // resolver imports e ver pq ntão bem
-        generatePiece();
-
-        Piece c = new Piece(g, SIZE_OF_PIECE);
-
+        // Incompleto
         for(int i = 0;i<initgrid[column].length;i++){
             if(initgrid[column][i]==Symbol.EMPTY && initgrid[column][i-1]!=Symbol.EMPTY){
                 for(int e =c.symbols().length;e>=0;e--){
@@ -96,6 +88,7 @@ public class Game {
             }
 
         }
+        Transformer.accomodate(g[column]);
         Transformer.eliminateSequence(g[column]);
         Transformer.accomodate(g[column]);
     }
