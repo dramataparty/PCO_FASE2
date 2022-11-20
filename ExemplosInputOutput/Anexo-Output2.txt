@@ -1,0 +1,157 @@
+Valid grid? true
+Valid grid? false
+Current piece: 
+@
+$
+&
+Current grid: 
+| | | | | |
+| | | | | |
+| |#|!|%| |
+|%|%|&|#|&|
+|&|&|$|@|@|
+|&|#|$|!|@|
+Score: 0
+==========================
+Let's play a new game, now
+==========================
+How many lines in grid?
+6
+How many columns in grid?
+4
+What difficulty level?
+1
+
+Current piece: 
+#
+$
+!
+Current grid: 
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+|&|&|$|#|
+Score: 0
+How many permutations in piece?
+2
+$
+!
+#
+
+What is the target column? (1 to 4, -1 to exit)
+4
+Current piece: 
+@
+@
+@
+Current grid: 
+| | | | |
+| | | | |
+| | | |$|
+| | | |!|
+| | | |#|
+|&|&|$|#|
+Score: 10
+How many permutations in piece?
+0
+@
+@
+@
+
+What is the target column? (1 to 4, -1 to exit)
+1
+Current piece: 
+@
+%
+%
+Current grid: 
+| | | | |
+| | | | |
+| | | |$|
+| | | |!|
+| | | |#|
+|&|&|$|#|
+Score: 220
+How many permutations in piece?
+2
+%
+%
+@
+
+What is the target column? (1 to 4, -1 to exit)
+3
+Current piece: 
+#
+#
+#
+Current grid: 
+| | | | |
+| | | | |
+| | |%|$|
+| | |%|!|
+| | |@|#|
+|&|&|$|#|
+Score: 230
+How many permutations in piece?
+0
+#
+#
+#
+
+What is the target column? (1 to 4, -1 to exit)
+1
+Current piece: 
+@
+%
+&
+Current grid: 
+| | | | |
+| | | | |
+| | |%|$|
+| | |%|!|
+| | |@|#|
+|&|&|$|#|
+Score: 440
+How many permutations in piece?
+0
+@
+%
+&
+
+What is the target column? (1 to 4, -1 to exit)
+1
+Current piece: 
+!
+&
+%
+Current grid: 
+| | | | |
+| | | | |
+|@| |%|$|
+|%| |%|!|
+|&| |@|#|
+|&|&|$|#|
+Score: 450
+How many permutations in piece?
+0
+!
+&
+%
+
+What is the target column? (1 to 4, -1 to exit)
+1
+Current piece: 
+!
+&
+%
+Current grid: 
+| | | | |
+| | | | |
+|@| |%|$|
+|%| |%|!|
+|&| |@|#|
+|&|&|$|#|
+Score: 450
+Not possible to play anymore

@@ -29,7 +29,7 @@ public class piece {
         for(int i=0;i<this.p.length;i++){
             int currind = i + n;
             while(currind>this.p.length-1){
-                currind = currind- this.p.length;
+                currind = currind-this.p.length;
             }
             this.p[i] = this.p[currind];
         }

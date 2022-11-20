@@ -1,0 +1,305 @@
+Valid grid? true
+Valid grid? false
+Current piece: 
+@
+$
+&
+Current grid: 
+| | | | | |
+| | | | | |
+| |#|!|%| |
+|%|%|&|#|&|
+|&|&|$|@|@|
+|&|#|$|!|@|
+Score: 0
+==========================
+Let's play a new game, now
+==========================
+How many lines in grid?
+10
+How many columns in grid?
+8
+What difficulty level?
+2
+
+Current piece: 
+#
+#
+#
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|&| |$|#| | |#|$|
+|!|&|@|@|@|@|%|%|
+Score: 0
+How many permutations in piece?
+0
+#
+#
+#
+
+What is the target column? (1 to 8, -1 to exit)
+4
+Current piece: 
+@
+%
+&
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|&| | | | | |#|$|
+|!|&|$| | | |%|%|
+Score: 760
+How many permutations in piece?
+1
+&
+@
+%
+
+What is the target column? (1 to 8, -1 to exit)
+6
+Current piece: 
+!
+&
+%
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+|&| | | | |&| | |
+|!|&|$| | |@|#|$|
+Score: 970
+How many permutations in piece?
+1
+%
+!
+&
+
+What is the target column? (1 to 8, -1 to exit)
+2
+Current piece: 
+#
+@
+%
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| |%| | | | | | |
+| |!| | | | | | |
+|&|&| | | |&| | |
+|!|&|$| | |@|#|$|
+Score: 980
+How many permutations in piece?
+1
+%
+#
+@
+
+What is the target column? (1 to 8, -1 to exit)
+5
+Current piece: 
+@
+%
+!
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| |%| | | | | | |
+| |!| | |%| | | |
+|&|&| | |#|&| | |
+|!|&|$| |@|@|#|$|
+Score: 990
+How many permutations in piece?
+2
+%
+!
+@
+
+What is the target column? (1 to 8, -1 to exit)
+4
+Current piece: 
+&
+!
+!
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| |%| | | | | | |
+| |!| | | | | | |
+|&|&| |%|%| | | |
+|!|&|$|!|#|&|#|$|
+Score: 1200
+How many permutations in piece?
+2
+!
+!
+&
+
+What is the target column? (1 to 8, -1 to exit)
+3
+Current piece: 
+#
+@
+@
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| |%|!| | | | | |
+| |!|!|%|%| | | |
+|!|&|$|!|#|&|#|$|
+Score: 1410
+How many permutations in piece?
+2
+@
+@
+#
+
+What is the target column? (1 to 8, -1 to exit)
+8
+Current piece: 
+&
+!
+%
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | |@|
+| |%|!| | | | |@|
+| |!|!|%|%| | |#|
+|!|&|$|!|#|&|#|$|
+Score: 1420
+How many permutations in piece?
+1
+%
+&
+!
+
+What is the target column? (1 to 8, -1 to exit)
+3
+Current piece: 
+@
+!
+@
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | |@|
+| |%|%| | | | |@|
+| |!|&|%|%| | |#|
+|!|&|$|!|#|&|#|$|
+Score: 1630
+How many permutations in piece?
+2
+!
+@
+@
+
+What is the target column? (1 to 8, -1 to exit)
+8
+Current piece: 
+!
+#
+!
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| |%|%| | | | |!|
+| |!|&|%|%| | |#|
+|!|&|$|!|#|&|#|$|
+Score: 1890
+How many permutations in piece?
+2
+#
+!
+!
+
+What is the target column? (1 to 8, -1 to exit)
+1
+Current piece: 
+$
+%
+#
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| |%|%| | | | |!|
+| |!|&|%|%| | |#|
+|#|&|$|!|#|&|#|$|
+Score: 2100
+How many permutations in piece?
+5
+%
+#
+$
+
+What is the target column? (1 to 8, -1 to exit)
+-1
+Current piece: 
+%
+#
+$
+Current grid: 
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| | | | | | | | |
+| |%|%| | | | |!|
+| |!|&|%|%| | |#|
+|#|&|$|!|#|&|#|$|
+Score: 2100
+See you soon!
