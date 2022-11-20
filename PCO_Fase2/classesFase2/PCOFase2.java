@@ -21,12 +21,12 @@ public class PCOFase2 {
 	public static void main(String[] args) {
 		// Este deve dar true
 		Symbol[][] grid1 = readGridFromFile("grid1.txt");
-		System.out.println("Valid grid? " + game.validGrid(grid1));
+		System.out.println("Valid grid? " + Game.validGrid(grid1));
 		// Este deve dar false
 		System.out.println("Valid grid? " + 
-                game.validGrid(readGridFromFile("grid2.txt")));
+                Game.validGrid(readGridFromFile("grid2.txt")));
 
-		game g1 = new game(grid1, new Random(2));
+		Game g1 = new Game(grid1, new Random(2));
 		g1.generatePiece();
 		System.out.println(g1);
 
@@ -44,7 +44,7 @@ public class PCOFase2 {
 		System.out.println("What difficulty level?");
 		int diffic = myReader.nextInt();
 		
-		game g = new game(nrLines,nrCols,diffic,new Random(1));
+		Game g = new Game(nrLines,nrCols,diffic,new Random(1));
 		System.out.println();
 		boolean wantToPlay = true;
 		boolean canPlay = g.canPlay();

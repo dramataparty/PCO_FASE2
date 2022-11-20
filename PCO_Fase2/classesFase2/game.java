@@ -1,5 +1,5 @@
 import java.util.Random;
-public class game {
+public class Game {
 
     private static final int SIZE_OF_PIECE = 3;
     private static final int PLAY_SCORE = 10;
@@ -12,7 +12,7 @@ public class game {
     private int nCols;
     private int diffic;
 
-    public game(Symbol [][] initGrid, Random g) {
+    public Game(Symbol [][] initGrid, Random g) {
         this.initgrid = initGrid;
         this.g = g;
         for(int i = 0; i < SIZE_OF_PIECE; i++) {
@@ -23,7 +23,7 @@ public class game {
         }
     }
 
-    public game(int nRows, int nCols, int diffic, Random g) {
+    public Game(int nRows, int nCols, int diffic, Random g) {
         this.nRows = nRows;
         this.nCols = nCols;
         this.diffic = diffic;
@@ -67,7 +67,7 @@ public class game {
     public void generatePiece() {
         // gera uma piece nova, chama o Piece do piece.java
         // usa o size of piece pra determinar
-        piece z = new piece(g, SIZE_OF_PIECE);
+        Piece z = new Piece(g, SIZE_OF_PIECE);
         Symbol[] simbolos = Symbol.values();
         for(int i = 0; i < SIZE_OF_PIECE; i++) {
             z.symbols()[i] = simbolos[g.nextInt(simbolos.length-1)];
@@ -76,7 +76,7 @@ public class game {
 
     public void permutatePiece(int n) {
         //erro aqui? why tho??? 
-        piece b = new piece(g, SIZE_OF_PIECE);
+        Piece b = new Piece(g, SIZE_OF_PIECE);
             b.permutation(n);
     }
 
@@ -85,7 +85,7 @@ public class game {
         // resolver imports e ver pq ntão bem
         generatePiece();
 
-        piece c = new piece(g, SIZE_OF_PIECE);
+        Piece c = new Piece(g, SIZE_OF_PIECE);
 
         for(int i = 0;i<initgrid[column].length;i++){
             if(initgrid[column][i]==Symbol.EMPTY && initgrid[column][i-1]!=Symbol.EMPTY){
@@ -143,7 +143,7 @@ public class game {
     //Não está completo
     public String currentPiece() {
 
-        piece a = new piece(g, SIZE_OF_PIECE);
+        Piece a = new Piece(g, SIZE_OF_PIECE);
 
         return "(" + a + ")";
     }

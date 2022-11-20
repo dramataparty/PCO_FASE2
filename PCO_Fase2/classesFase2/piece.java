@@ -2,27 +2,28 @@
  * @author Diogo Forte nº 56931, Tiago Pereira nº55854
  */
 import java.util.Random;
-public class piece {
+public class Piece {
 
     private Symbol[] p;
     private Random generator;
     private int size;
 
-    public piece(Symbol[] p) {
+    public Piece(Symbol[] p) {
         this.p = p;
     }
 
-    public piece (Random generator, int size) {
-        this.generator = generator;
-        //nao sei se esta completo
-        for(int i = 0; i < size; i++) {
-            int valor = generator.nextInt((7)+1);
-            if(valor == 7) {
-                valor = generator.nextInt((7)+1);
-            }
-            // aceder aos symbols como?
-        }
+    public Piece (Random generator, int size) {
+        Symbol[] symbarr = Symbol.values();
         this.size = size;
+        this.generator = generator;
+        for(int i = 0; i < size; i++) {
+            int valor = generator.nextInt((7));
+            this.p[i]=symbarr[valor];
+            if(valor == 7) {
+                valor = generator.nextInt((7));
+            }
+
+        }
     }
 
     public void permutation(int n) {
@@ -39,8 +40,8 @@ public class piece {
         return this.p;
     }
 
-    public piece copy() {
-        return new piece(this.generator, this.size);
+    public Piece copy() {
+        return new Piece(this.generator, this.size);
     }
 
     public String toString() {
