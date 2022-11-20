@@ -20,7 +20,11 @@ public class Piece {
             int valor = generator.nextInt((7));
             this.p[i]=symbarr[valor];
             if(valor == 7) {
-                valor = generator.nextInt((7));
+                while(valor > 6 ){
+
+                    
+                }
+                
             }
 
         }
