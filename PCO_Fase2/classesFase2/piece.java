@@ -28,10 +28,10 @@ public class Piece {
     }
 
     public void permutation(int n) {
-        for(int i=0;i<this.p.length;i++){
+        for(int i=0;i<size;i++){
             int currind = i + n;
-            while(currind>this.p.length-1){
-                currind = currind-this.p.length;
+            while(currind>size-1){
+                currind = currind-size;
             }
             this.p[i] = this.p[currind];
         }
@@ -42,7 +42,7 @@ public class Piece {
     }
 
     public Piece copy() {
-        return  Piece(this.p); //?????? dafaq
+        return  ; //?????? dafaq
 
     public String toString() {
         return "(" + this.p.toString() + ")";
