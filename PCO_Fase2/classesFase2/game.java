@@ -44,33 +44,22 @@ public class Game {
 
     public static boolean validGrid(Symbol[][] g){
         boolean valgrid = true;
-        int colcount = 0;
-        for(Symbol [] i:g){
-            colcount++;
-            if(i.length != linesInGrid()){
-                valgrid = false;
-            }
-            for(int e = 0; e < i.length - 1;e++){
-                if(i[e]==null || ( (i[e] != Symbol.EMPTY) && i[e+1]== Symbol.EMPTY)){
-                    valgrid = false;
+        for(int i = 0; i < g.length;i++){
+            for(int e = 0; e < g[i].length;e++){
+                if(g[i][e]==null){
+                    valgrid=false;
                 }
-        }
-        /** 
-        if(colcount!= colsInGrid()){
-            valgrid = false;
-        }
-
-        }
-        */
+                if(g[i][e-1]!= Symbol.EMPTY && g[i][e]==Symbol.EMPTY){
+                  valgrid=false;  
+                }
+            }
         }
         return valgrid;
     }
 
     public void generatePiece() {
         // Como é que se faz update e/ou define a piece atual???
-        Piece z = new Piece(g, SIZE_OF_PIECE);
-        z = 
-        
+        Piece();
     }
 
     public void permutatePiece(int n) { 
@@ -136,9 +125,7 @@ public class Game {
     //Não está completo
     public String currentPiece() {
 
-        Piece a = new Piece(g, SIZE_OF_PIECE);
-
-        return "(" + a + ")";
+        return "(" + p.toString + ")";
     }
     //Não está completo
     public String toString() {
