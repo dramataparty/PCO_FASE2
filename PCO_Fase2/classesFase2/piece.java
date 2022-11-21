@@ -16,18 +16,15 @@ public class Piece {
         Symbol[] symbarr = Symbol.values();
         this.size = size;
         this.generator = generator;
+        Symbol[] currp = new Symbol[size];
         for(int i = 0; i < size; i++) {
             int valor = generator.nextInt((7));
-            this.p[i]=symbarr[valor];
             if(valor == 7) {
-                while(valor > 6 ){
-
-                    
-                }
-                
+                valor = generator.nextInt((7));    
             }
-
+            currp[i]=symbarr[valor];
         }
+        this.p=currp;
     }
 
     public void permutation(int n) {
@@ -45,10 +42,9 @@ public class Piece {
     }
 
     public Piece copy() {
-        return new Piece(this.generator, this.size);
-    }
+        return  Piece(this.p); //?????? dafaq
 
     public String toString() {
-        return "(" + this.p + ")";
+        return "(" + this.p.toString() + ")";
     }
 }
