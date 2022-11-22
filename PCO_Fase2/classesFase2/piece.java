@@ -42,8 +42,8 @@ public class Piece {
     }
 
     public Piece copy() {
-        return  ; //?????? dafaq
-
+        return new Piece(this.p); 
+    }
     public String toString() {
         return "(" + this.p.toString() + ")";
     }

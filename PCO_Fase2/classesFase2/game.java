@@ -58,28 +58,32 @@ public class Game {
     }
 
     public void generatePiece() {
-        // Como é que se faz update e/ou define a piece atual???
-        Piece();
+        Piece p = new Piece(g,SIZE_OF_PIECE);
+        p.copy();
     }
 
     public void permutatePiece(int n) { 
-        Piece.p.permutation(n);
+        Piece p = new Piece(g,SIZE_OF_PIECE);
+        p.permutation(n);
+        /// tá bom?????
     }
 
     public void placePiece(int column) {
-        // Incompleto
+        Transformer traans = new Transformer(SIZE_OF_PIECE,Symbol.EMPTY);
+        
         for(int i = 0;i<initgrid[column].length;i++){
+            Piece p = new Piece(Piece.p);
             if(initgrid[column][i]==Symbol.EMPTY && initgrid[column][i-1]!=Symbol.EMPTY){
-                for(int e =c.symbols().length;e>=0;e--){
-                    initgrid[column][i] = c.symbols()[e];
+                for(int e =SIZE_OF_PIECE;e>=0;e--){
+                    initgrid[column][i] =  p[e];
 
                 }
             }
 
         }
-        Transformer.accomodate(g[column]);
-        Transformer.eliminateSequence(g[column]);
-        Transformer.accomodate(g[column]);
+        traans.accomodate(initgrid[column]);
+        traans.eliminateSequence(initgrid[column]);
+        traans.accomodate(initgrid[column]);
     }
 
     public boolean canPlay() {
@@ -110,26 +114,27 @@ public class Game {
 
     //Por terminar
     public int score() {
-        // if(permutatePiece()) {
-        //     currentScore +=  PLAY_SCORE;
-        // }
-        // if(Transformer.eliminateSequence == 3) {
-            //currentScore += BASE_ELIM_POINTS;
-        // }
-        // if(Transformer.eliminateSequence > 3)
-        // currentScore = currentScore + BASE_ELIM_POINTS + (EXTRA_ELIM_POINTS * (Transformer.eliminateSequence - SIZE_OF_PIECE));
-        //}
+            int currentScore = 0;
+            if(permutatePiece()) {
+                currentScore +=  PLAY_SCORE;
+                }
+                if(Transformer.eliminateSequence == 3) {
+                currentScore += BASE_ELIM_POINTS;
+                }
+                if(Transformer.eliminateSequence > 3){
+                currentScore = currentScore + BASE_ELIM_POINTS + (EXTRA_ELIM_POINTS * (Transformer.eliminateSequence - SIZE_OF_PIECE));
+            }
         return currentScore;
-        
-    }
+}
     //Não está completo
     public String currentPiece() {
-
-        return "(" + p.toString + ")";
+        for(int i = 0, i<SIZE_OF_PIECE,i++){
+            System.out.println(Piece[i]);
+        }
     }
     //Não está completo
     public String toString() {
-        return "(" + this.nRows + "," + this.nCols + ")";
+        return "( " + this.nRows + " , " + this.nCols + " )";
     }
 
     public static void main(String[] args){
