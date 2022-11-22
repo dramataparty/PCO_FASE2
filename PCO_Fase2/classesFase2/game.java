@@ -65,17 +65,16 @@ public class Game {
     public void permutatePiece(int n) { 
         Piece p = new Piece(g,SIZE_OF_PIECE);
         p.permutation(n);
-        /// tá bom?????
     }
 
     public void placePiece(int column) {
         Transformer traans = new Transformer(SIZE_OF_PIECE,Symbol.EMPTY);
-        
+        Piece p = new Piece(g,SIZE_OF_PIECE);
+        Symbol [] symb = p.symbols();
         for(int i = 0;i<initgrid[column].length;i++){
-            Piece p = new Piece(Piece.p);
             if(initgrid[column][i]==Symbol.EMPTY && initgrid[column][i-1]!=Symbol.EMPTY){
                 for(int e =SIZE_OF_PIECE;e>=0;e--){
-                    initgrid[column][i] =  p[e];
+                    initgrid[column][i] =  symb[e];
 
                 }
             }
@@ -126,19 +125,19 @@ public class Game {
             }
         return currentScore;
 }
-    //Não está completo
+    
     public String currentPiece() {
-        for(int i = 0, i<SIZE_OF_PIECE,i++){
-            System.out.println(Piece[i]);
+        Piece p = new Piece(g,SIZE_OF_PIECE);
+        Symbol [] symb = p.symbols();
+        String ts ="";
+        for(int i = 0; i < SIZE_OF_PIECE ;i++){
+             ts = (symb[i]).toString() + "\n";
         }
+        return ts;
     }
-    //Não está completo
+   
     public String toString() {
         return "( " + this.nRows + " , " + this.nCols + " )";
     }
 
-    public static void main(String[] args){
-        
-
-    }
 }
