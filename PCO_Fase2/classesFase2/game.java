@@ -113,16 +113,16 @@ public class Game {
 
     //Por terminar
     public int score() {
-            int currentScore = 0;
-            if(permutatePiece()) {
-                currentScore +=  PLAY_SCORE;
-                }
-                if(Transformer.eliminateSequence == 3) {
-                currentScore += BASE_ELIM_POINTS;
-                }
-                if(Transformer.eliminateSequence > 3){
-                currentScore = currentScore + BASE_ELIM_POINTS + (EXTRA_ELIM_POINTS * (Transformer.eliminateSequence - SIZE_OF_PIECE));
-            }
+            //int currentScore = 0;
+            //if(permutatePiece()) {
+            //    currentScore +=  PLAY_SCORE;
+            //    }
+            //    if(Transformer.eliminateSequence == 3) {
+            //    currentScore += BASE_ELIM_POINTS;
+            //    }
+            //    if(Transformer.eliminateSequence > 3){
+            //    currentScore = currentScore + BASE_ELIM_POINTS + (EXTRA_ELIM_POINTS * (Transformer.eliminateSequence - SIZE_OF_PIECE));
+            //}
         return currentScore;
 }
     
