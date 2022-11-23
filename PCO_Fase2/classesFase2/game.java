@@ -12,6 +12,13 @@ public class Game {
     private int nCols;
     private int diffic;
 
+    /**
+     * Construtor da classe Game
+     * @param initGrid
+     * @param g
+     * @requires initGrid != null, g != null
+     * @ensures Início de um Game
+     */
     public Game(Symbol [][] initGrid, Random g) {
         if(validGrid(initGrid)){
             this.initgrid = initGrid;
@@ -19,13 +26,17 @@ public class Game {
         }
     }
 
+    /**
+     * Construtor da classe Game
+     * @param nRows
+     * @param nCols
+     * @param diffic
+     * @param g
+     * @requires nRowns != null, nCols != null, diffic != null, g != null
+     * @ensures Início de um Game
+     */
     public Game(int nRows, int nCols, int diffic, Random g) {
         Symbol[] symbarr = Symbol.values();
-        Symbol [][] game = new Symbol[nCols][nRows];
-        this.initgrid = game;
-        this.nCols=nCols;
-        this.nRows=nRows;
-        this.diffic=diffic;
         int rowindex = nRows-1;
         int colindex = nCols-1;
         for(int i = 0; i < colindex ; i++){
@@ -35,67 +46,100 @@ public class Game {
                 diffic =-1;                
             }
             for(int e = rowindex; e > (rowindex - diffic);e--){            
-                game[i][e] = symbarr[gen.nextInt(6)];
+                this.initgrid[i][e] = symbarr[gen.nextInt(7)-1];
             }
-            t.accomodate(game[i]);
+            t.accomodate(this.initgrid[i]);
         }
     }
 
+    /**
+     * Função que devolve as linhas da Grid
+     * @return As linhas da Grid
+     * @ensures Devolver as linhas da Grid
+     */
     int linesInGrid() {
         return this.nRows;
     }
-
+    /**
+     * Função que devolve as colunas da Grid
+     * @return as colunas da Grid
+     * @ensures Devolver as colunas da Grid
+     */
     int colsInGrid() {
         return this.nCols;
     }
 
 
-
+    /**
+     * Função que recebe uma grid e verifica se ela é válida para realizar um "Game"
+     * @requires g != null
+     * @param g
+     * @return True se uma Grid e valida e False se uma Grid não for válida
+     * @ensures Devolver True ou False, caso a variável g seja diferente de null
+     */
     public static boolean validGrid(Symbol[][] g){
         boolean valgrid = true;
-        for(int i = 0; i < g.length;i++){
+        for(int i = 0; i < g.length - 1;i++){
             for(int e = 0; e < g[i].length - 1;e++){
                 if(g[i][e]==null){
                     valgrid=false;
                 }
-                if(g[i][e]!= Symbol.EMPTY && g[i][e+1]==Symbol.EMPTY){
-                  valgrid=false;  
+                if(g[i][e]!=Symbol.EMPTY && g[i+1][e]==Symbol.EMPTY){
+                    valgrid=false;
                 }
             }
+
         }
         return valgrid;
     }
 
+    /**
+     * Função que gera uma peça
+     * @ensures A criação de uma peça para o Game
+     */
     public void generatePiece() {
         Piece p = new Piece(g,SIZE_OF_PIECE);
         p.copy();
     }
-
+    /**
+     * Função que permuta uma peça com um valor n
+     * @param n
+     * @requires n != null
+     * @ensures O movimento da peça no Game, caso a variável n seja diferente de null
+     */
     public void permutatePiece(int n) { 
         Piece p = new Piece(g,SIZE_OF_PIECE);
         p.permutation(n);
     }
 
+    /**
+     * Função que coloca a peça na Grid/jogo
+     * @requires column != null
+     * @param column
+     * @ensures A introdução da peça no Game, caso a variável column seja diferente de null
+     */
     public void placePiece(int column) {
-        Symbol [][] game = new Symbol[nCols][nRows];
         Transformer traans = new Transformer(SIZE_OF_PIECE,Symbol.EMPTY);
         Piece p = new Piece(g,SIZE_OF_PIECE);
         Symbol [] symb = p.symbols();
-        for(int i = 0;i<game[column].length;i++){
-            if(game[column][i]==Symbol.EMPTY && game[column][i-1]!=Symbol.EMPTY){
+        for(int i = 0;i<nRows;i++){
+            if(initgrid[column][i]==Symbol.EMPTY && initgrid[column][i-1]!=Symbol.EMPTY){
                 for(int e =SIZE_OF_PIECE;e>=0;e--){
-                    game[column][i] =  symb[e];
+                    initgrid[column][i] =  symb[e];
 
                 }
             }
 
         }
-        traans.accomodate(game[column]);
-        traans.eliminateSequence(game[column]);
-        traans.accomodate(game[column]);
-        this.initgrid = game;
+        traans.accomodate(initgrid[column]);
+        traans.eliminateSequence(initgrid[column]);
+        traans.accomodate(initgrid[column]);
     }
-
+    /**
+     * Função que verifica se ainda podem ser realizadas jogadas pelo utilizador
+     * @return True se for possível realizar mais jogadas ou False se não for possível realizar mais jogadas
+     * @ensures Devolver True ou False
+     */
     public boolean canPlay() {
         for(int i = 0 ; i< nCols; i++){
             for(int e = 0; e < nRows - 1;e++){
@@ -107,6 +151,12 @@ public class Game {
         return true;
     }
 
+    /**
+     * Função que verifica se uma dada coluna do Game ainda tem jogadas possíveis
+     * @param col
+     * @requires col != null
+     * @return True se for possível realizar mais jogadas ou False se não for possível realizar mais jogadas
+     */
     public boolean canPlayInColumn(int col) {
         int colb = col - 1;
         boolean jogar = false;
@@ -122,7 +172,11 @@ public class Game {
 
     public int currentScore = 0;
 
-    //Por terminar
+     /**
+     * Função que calcula o score do Game em curso
+     * @return O score do Game
+     * @ensures Mostrar a pontuação do Game/jogo e decorrer nesse instante
+     */
     public int score() {
             //int currentScore = 0;
             //if(permutatePiece()) {
@@ -136,7 +190,11 @@ public class Game {
             //}
         return currentScore;
 }
-    
+    /**
+     * Função que devolve uma representação textual da peça corrente
+     * @return Uma representação textual da peça atual
+     * @ensures Devolver a representação textual de uma peça
+     */
     public String currentPiece() {
         Piece p = new Piece(g,SIZE_OF_PIECE);
         Symbol [] symb = p.symbols();
@@ -146,9 +204,22 @@ public class Game {
         }
         return ts;
     }
-   
+   /**
+     * Função que devolve a representação textual do Game
+     * @return A representação textual do Game
+     * @ensures Devolver a representação textual do Game/jogo a decorrer
+     */
     public String toString() {
-        return "( " + this.nRows + " , " + this.nCols + " )";
+        String ts ="";
+        for(int i = 0; i < initgrid.length ;i++){
+            for(int e = 0; e < initgrid[i].length;e++){
+                ts += initgrid[i][e].toString() + "\n";
+            }
+
+        }
+
+        
+        return ts;
     }
 
 }

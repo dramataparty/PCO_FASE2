@@ -20,11 +20,11 @@ public class PCOFase2 {
 	 */
 	public static void main(String[] args) {
 		// Este deve dar true
-		Symbol[][] grid1 = readGridFromFile("/Users/diogoforte/Desktop/PCO_FASE2/PCO_Fase2/classesFase2/grid1.txt");
+		Symbol[][] grid1 = readGridFromFile("PCO_Fase2/classesFase2/grid1.txt");
 		System.out.println("Valid grid? " + Game.validGrid(grid1));
 		// Este deve dar false
 		System.out.println("Valid grid? " + 
-                Game.validGrid(readGridFromFile("/Users/diogoforte/Desktop/PCO_FASE2/PCO_Fase2/classesFase2/grid2.txt")));
+                Game.validGrid(readGridFromFile("PCO_Fase2/classesFase2/grid2.txt")));
 
 		Game g1 = new Game(grid1, new Random(2));
 		g1.generatePiece();
