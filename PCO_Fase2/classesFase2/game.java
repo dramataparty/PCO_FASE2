@@ -13,22 +13,31 @@ public class Game {
     private int diffic;
 
     public Game(Symbol [][] initGrid, Random g) {
-        this.initgrid = initGrid;
-        this.g = g;
+        if(validGrid(initGrid)){
+            this.initgrid = initGrid;
+            this.g = new Random();
+        }
     }
 
     public Game(int nRows, int nCols, int diffic, Random g) {
-        this.nRows = nRows;
-        this.nCols = nCols;
-        this.diffic = diffic;
-        this.g = g;
         Symbol[] symbarr = Symbol.values();
-        for(int i = 0; i < nRows ; i++){
+        Symbol [][] game = new Symbol[nCols][nRows];
+        this.initgrid = game;
+        this.nCols=nCols;
+        this.nRows=nRows;
+        this.diffic=diffic;
+        int rowindex = nRows-1;
+        int colindex = nCols-1;
+        for(int i = 0; i < colindex ; i++){
+            Transformer t = new Transformer(SIZE_OF_PIECE,Symbol.EMPTY);
             Random gen = new Random();
-            for(int e = nCols; e > nCols- diffic;e--){
-                initgrid[i][e] = symbarr[gen.nextInt(7)];
+            while(diffic>rowindex){
+                diffic =-1;                
             }
-
+            for(int e = rowindex; e > (rowindex - diffic);e--){            
+                game[i][e] = symbarr[gen.nextInt(6)];
+            }
+            t.accomodate(game[i]);
         }
     }
 
@@ -68,27 +77,29 @@ public class Game {
     }
 
     public void placePiece(int column) {
+        Symbol [][] game = new Symbol[nCols][nRows];
         Transformer traans = new Transformer(SIZE_OF_PIECE,Symbol.EMPTY);
         Piece p = new Piece(g,SIZE_OF_PIECE);
         Symbol [] symb = p.symbols();
-        for(int i = 0;i<initgrid[column].length;i++){
-            if(initgrid[column][i]==Symbol.EMPTY && initgrid[column][i-1]!=Symbol.EMPTY){
+        for(int i = 0;i<game[column].length;i++){
+            if(game[column][i]==Symbol.EMPTY && game[column][i-1]!=Symbol.EMPTY){
                 for(int e =SIZE_OF_PIECE;e>=0;e--){
-                    initgrid[column][i] =  symb[e];
+                    game[column][i] =  symb[e];
 
                 }
             }
 
         }
-        traans.accomodate(initgrid[column]);
-        traans.eliminateSequence(initgrid[column]);
-        traans.accomodate(initgrid[column]);
+        traans.accomodate(game[column]);
+        traans.eliminateSequence(game[column]);
+        traans.accomodate(game[column]);
+        this.initgrid = game;
     }
 
     public boolean canPlay() {
-        for(Symbol [] i:initgrid){
-            for(int e = 0; e < i.length - 1;e++){
-                if(i[e]==null || ( (i[e] != Symbol.EMPTY) && i[e+1]== Symbol.EMPTY)){
+        for(int i = 0 ; i< nCols; i++){
+            for(int e = 0; e < nRows - 1;e++){
+                if(initgrid[i][e]==null || ( (initgrid[i][e] != Symbol.EMPTY) && initgrid[i][e+1]== Symbol.EMPTY)){
                     return false;
                 } 
             }

@@ -14,17 +14,18 @@ public class Piece {
 
     public Piece (Random generator, int size) {
         Symbol[] symbarr = Symbol.values();
+        Random gen = new Random();
         this.size = size;
-        this.generator = generator;
         Symbol[] currp = new Symbol[size];
         for(int i = 0; i < size; i++) {
-            int valor = generator.nextInt((7));
+            int valor = gen.nextInt(7);
             if(valor == 7) {
-                valor = generator.nextInt((7));    
+                valor = gen.nextInt(7);    
             }
             currp[i]=symbarr[valor];
         }
         this.p=currp;
+        this.generator = gen;
     }
 
     public void permutation(int n) {
@@ -38,13 +39,13 @@ public class Piece {
     }
 
     public Symbol[] symbols() {
-        return this.p;
+        return p;
     }
 
     public Piece copy() {
-        return new Piece(this.p); 
+        return new Piece(p); 
     }
     public String toString() {
-        return "(" + this.p.toString() + ")";
+        return "(" + p.toString() + ")";
     }
 }
