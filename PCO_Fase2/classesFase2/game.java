@@ -23,9 +23,9 @@ public class Game {
         this.diffic = diffic;
         this.g = g;
         Symbol[] symbarr = Symbol.values();
-        for(int i = 0; i < initgrid.length ; i++){
+        for(int i = 0; i < nRows ; i++){
             Random gen = new Random();
-            for(int e = initgrid[i].length; e > initgrid[i].length - diffic;e--){
+            for(int e = nCols; e > nCols- diffic;e--){
                 initgrid[i][e] = symbarr[gen.nextInt(7)];
             }
 
@@ -45,11 +45,11 @@ public class Game {
     public static boolean validGrid(Symbol[][] g){
         boolean valgrid = true;
         for(int i = 0; i < g.length;i++){
-            for(int e = 0; e < g[i].length;e++){
+            for(int e = 0; e < g[i].length - 1;e++){
                 if(g[i][e]==null){
                     valgrid=false;
                 }
-                if(g[i][e-1]!= Symbol.EMPTY && g[i][e]==Symbol.EMPTY){
+                if(g[i][e]!= Symbol.EMPTY && g[i][e+1]==Symbol.EMPTY){
                   valgrid=false;  
                 }
             }
