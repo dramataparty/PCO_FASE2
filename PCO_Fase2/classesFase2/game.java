@@ -1,4 +1,6 @@
 import java.util.Random;
+
+import javax.jws.soap.InitParam;
 public class Game {
 
     private static final int SIZE_OF_PIECE = 3;
@@ -21,7 +23,11 @@ public class Game {
      */
     public Game(Symbol [][] initGrid, Random g) {
         if(validGrid(initGrid)){
-            this.initgrid = initGrid;
+            initgrid = initGrid;
+            this.g = g;
+        }
+        else{
+            initgrid = new Symbol[nCols][nRows];
             this.g = new Random();
         }
     }
@@ -41,14 +47,13 @@ public class Game {
         int colindex = nCols-1;
         for(int i = 0; i < colindex ; i++){
             Transformer t = new Transformer(SIZE_OF_PIECE,Symbol.EMPTY);
-            Random gen = new Random();
             while(diffic>rowindex){
                 diffic =-1;                
             }
             for(int e = rowindex; e > (rowindex - diffic);e--){            
-                this.initgrid[i][e] = symbarr[gen.nextInt(7)-1];
+                initgrid[i][e] = symbarr[g.nextInt(7)-1];
             }
-            t.accomodate(this.initgrid[i]);
+            t.accomodate(initgrid[i]);
         }
     }
 
@@ -196,12 +201,7 @@ public class Game {
      * @ensures Devolver a representação textual de uma peça
      */
     public String currentPiece() {
-        Piece p = new Piece(g,SIZE_OF_PIECE);
-        Symbol [] symb = p.symbols();
-        String ts ="";
-        for(int i = 0; i < SIZE_OF_PIECE ;i++){
-             ts = (symb[i]).toString() + "\n";
-        }
+        String ts = new Piece(g,SIZE_OF_PIECE).toString();
         return ts;
     }
    /**
@@ -212,14 +212,20 @@ public class Game {
     public String toString() {
         String ts ="";
         for(int i = 0; i < initgrid.length ;i++){
-            for(int e = 0; e < initgrid[i].length;e++){
-                ts += initgrid[i][e].toString() + "\n";
+            for(int e = nRows-1;e > 1;e--){
+                if(e == nRows-1){
+                    ts += "|";
+                }
+                if(initgrid[i][e] != null){
+                ts += initgrid[i][e].toString();
+                ts += "|";
+                }
             }
-
+            ts+="\n";
         }
-
-        
         return ts;
+        
     }
-
 }
+
+    

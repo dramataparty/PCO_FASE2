@@ -75,13 +75,17 @@ public class Piece {
     public Piece copy() {
         return new Piece(p); 
     }
-    
+
     /**
      * Função que devolve a representação textual de uma Piece/peça
      * @return Uma representação textual de uma Piece/peça
      * @ensures A representação textual de uma Piece/peça 
      */
     public String toString() {
-        return "(" + p.toString() + ")";
+        String ts = "";
+        for(int i = 0; i<size;i++){
+            ts +=p[i].toString();
+        }
+        return "Current Piece: \n" + ts;
     }
 }
